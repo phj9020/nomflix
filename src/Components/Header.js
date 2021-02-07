@@ -33,7 +33,7 @@ const Slink = styled(Link)`
 function Header(props){
     // props.location.pathname
     const { location : {pathname}} = props;
-    console.log(props)
+    // console.log(props)
     return (
     <Menuheader>
         <List>
