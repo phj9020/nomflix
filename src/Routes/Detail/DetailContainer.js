@@ -8,6 +8,16 @@ class DetailContainer extends React.Component {
         error: null,
         loading: true
     }
+
+    componentDidMount = async() => {
+        try{
+            
+        }catch{
+            this.state({error: "Can't find Detail Information"})
+        }finally{
+            this.state({loading:false})
+        }
+    }
     render() {
         const {result, error, loading} = this.state;
         return <DetailPresenter result={result} error={error} loading={loading}/>
