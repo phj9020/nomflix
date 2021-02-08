@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-import Detail from 'Routes/Detail';
+// import Detail from 'Routes/Detail';
 import Search from 'Routes/Search';
 import TV from 'Routes/TV';
 import Home from 'Routes/Home';
