@@ -29,7 +29,7 @@ class TVContainer extends React.Component {
 
   render() {
     const { popular, topRated, airingToday, error, loading } = this.state;
-    // console.log(this.state)
+
     return (
       <TVPresenter
         popular={popular}
