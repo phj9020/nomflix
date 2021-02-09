@@ -28,7 +28,7 @@ class DetailContainer extends React.Component {
         const { isMovie } = this.state;
         let result = null;
 
-        try{
+        try {
             if(isMovie) {
                 // const request = await moviesApi.movieDetail(parseId);
                 // result = request.data;
@@ -36,15 +36,11 @@ class DetailContainer extends React.Component {
             } else {
                 ({data : result} = await tvApi.tvDetail(parseId));
             }
-        }catch {
+        } catch {
             this.setState({error: "Can't find Selected Movie/TV information"})
         } finally{
             this.setState({loading: false, result : result})
         }
-
-
-
-
     }
 
     render() {

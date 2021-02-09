@@ -6,7 +6,7 @@ class SearchContainer extends React.Component{
     state = {
         movieResults: null,
         tvResults: null,
-        searchTerm: "",
+        searchTerm: "code",
         loading: false,
         error: null
     }
