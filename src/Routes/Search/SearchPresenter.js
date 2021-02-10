@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from "styled-components";
 import Section from "Components/Section";
 import Loader from "Components/Loader";
+import Message from "Components/Message";
 
 
 const Container = styled.div`
@@ -32,6 +33,8 @@ const SearchPresenter = ({movieResults, tvResults, searchTerm, loading, error, h
             {tvResults && tvResults.length > 0 && <Section title="TV Show Results">{tvResults.map(tv => <span key={tv.id}>{tv.name}</span>)}</Section>} 
             </> 
             }
+            {error && <Message color="#e74c3c" text={error}/>}
+            {tvResults && movieResults && tvResults.length === 0 && movieResults.length === 0 && <Message color="#7f8c8d" text="Nothing Found"/>}
         </Container>
     )
 }
