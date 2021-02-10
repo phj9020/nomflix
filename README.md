@@ -4,9 +4,9 @@ Movie Discovery App
 
 ## Screens
 
-- [] Home
-- [] TV Shows
-- [] Search
+- [X] Home
+- [X] TV Shows
+- [X] Search
 - [] Detail
 
 
