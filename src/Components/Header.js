@@ -10,6 +10,7 @@ const Menuheader = styled.header`
     left: 0px;
     background-color: rgba(20,20,20, 0.8);
     box-shadow: 0px 1px 3px 2px rgba(0,0,0, 0.8);
+    z-index: 1111;
 `;
 const List = styled.ul`
     display:flex;
