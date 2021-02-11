@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Helmet from "react-helmet";
 import Section from "Components/Section";
 import Loader from "Components/Loader";
 import Message from "Components/Message";
@@ -13,10 +14,21 @@ const Container = styled.section`
 // const HomePresnter = ({nowPlaying, popular, upcoming, error, loading})=> loading ? null : <Container></Container>
 function HomePresenter({ nowPlaying, popular, upcoming, error, loading }) {
   if (loading) {
-    return <Loader />;
+    return (
+      <>
+        <Helmet>
+        <title>Loading | Nomflix </title>
+        </Helmet>
+        <Loader />;
+      </>
+    )
+    
   } else {
     return (
       <Container>
+          <Helmet>
+            <title>Movies | Nomflix </title>
+          </Helmet>
         {nowPlaying && nowPlaying.length > 0 && (
           <Section title="Now Playing">
             {nowPlaying.map((movie) => (

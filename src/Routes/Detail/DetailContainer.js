@@ -1,5 +1,6 @@
 import React from "react";
 import DetailPresenter from "./DetailPresenter";
+import axios from 'axios';
 import {tvApi, moviesApi} from "api";
 
 
@@ -11,6 +12,7 @@ class DetailContainer extends React.Component {
             result: null,
             error: null,
             loading: true,
+            videokey: null,
             isMovie :  pathname.includes("/movie/")
         }
     }
@@ -18,7 +20,7 @@ class DetailContainer extends React.Component {
     async componentDidMount() {
         // const {history: {push}}=this.props;
         const {match :{ params: {id}}, history :{push}}=this.props;
-
+        console.log(this.props)
         const parseId = parseInt(id)
         // 만약 id가 숫자가 아니면 홈으로 
         if(isNaN(parseId)){
@@ -27,6 +29,8 @@ class DetailContainer extends React.Component {
 
         const { isMovie } = this.state;
         let result = null;
+        let videoKey = null;
+        let keys; 
 
         try {
             if(isMovie) {
@@ -36,17 +40,20 @@ class DetailContainer extends React.Component {
             } else {
                 ({data : result} = await tvApi.tvDetail(parseId));
             }
+            
+            videoKey = result.videos;
+
         } catch {
             this.setState({error: "Can't find Selected Movie/TV information"})
         } finally{
-            this.setState({loading: false, result : result})
+            this.setState({loading: false, result : result, videokey: videoKey})
         }
     }
 
     render() {
-        const {result, error, loading} = this.state;
-        console.log(result)
-        return <DetailPresenter result={result} error={error} loading={loading}/>
+        const {result, error, loading, videokey} = this.state;
+        console.log(videokey);
+        return <DetailPresenter result={result} error={error} loading={loading} videokey={videokey}/>
     }
 }
 

@@ -7,7 +7,7 @@ Movie Discovery App
 - [X] Home
 - [X] TV Shows
 - [X] Search
-- [] Detail
+- [X] Detail
 
 
 ## API Verbs
