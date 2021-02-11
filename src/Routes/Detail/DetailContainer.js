@@ -12,7 +12,6 @@ class DetailContainer extends React.Component {
             result: null,
             error: null,
             loading: true,
-            videokey: null,
             isMovie :  pathname.includes("/movie/")
         }
     }
@@ -29,8 +28,6 @@ class DetailContainer extends React.Component {
 
         const { isMovie } = this.state;
         let result = null;
-        let videoKey = null;
-        let keys; 
 
         try {
             if(isMovie) {
@@ -41,19 +38,18 @@ class DetailContainer extends React.Component {
                 ({data : result} = await tvApi.tvDetail(parseId));
             }
             
-            videoKey = result.videos;
 
         } catch {
             this.setState({error: "Can't find Selected Movie/TV information"})
         } finally{
-            this.setState({loading: false, result : result, videokey: videoKey})
+            this.setState({loading: false, result : result})
         }
     }
 
     render() {
         const {result, error, loading, videokey} = this.state;
         console.log(videokey);
-        return <DetailPresenter result={result} error={error} loading={loading} videokey={videokey}/>
+        return <DetailPresenter result={result} error={error} loading={loading}/>
     }
 }
 

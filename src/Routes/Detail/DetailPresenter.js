@@ -66,7 +66,8 @@ const Homepage = styled.a`
   display:block;
   font-size: 14px;
   margin-bottom:20px;
-  color: gray;
+  color: #f5f6fa;
+  opacity: 0.6
 `
 
 const Overview = styled.p`
@@ -80,14 +81,15 @@ const Overview = styled.p`
 
 const Video = styled.iframe`
   width: 60%;
+  min-width: 600px;
   height: 400px;
   z-index:111111111;
 `
 
 
 
-function DetailPresenter({ result, error, loading, videokey }) {
-  console.log(videokey)
+function DetailPresenter({ result, error, loading }) {
+  console.log(result)
   if(loading) {
       return (
         <>
@@ -117,10 +119,12 @@ function DetailPresenter({ result, error, loading, videokey }) {
                         <Item>{result.runtime ? `${result.runtime} min` : `${result.episode_run_time} Min`}</Item>
                         <Divider>•</Divider>
                         <Item>{result.genres && result.genres.map((item,index) => index === result.genres.length -1 ? item.name : `${item.name} / `)}</Item>
+                        <Divider>•</Divider>
+                        <Item>Language : {result.spoken_languages && result.spoken_languages.map((item,index) => index === result.spoken_languages.length -1 ? item.name : `${item.name} / `)}</Item>
                       </ItemContainer>
                       <Homepage href={result.homepage}>Official Website: {result.homepage}</Homepage>
                       <Overview>{result.overview}</Overview>
-                      {videokey.results.length !== 0 ? <Video src={`https://www.youtube.com/embed/${videokey.results[0].key}?autoplay=2&origin=http://localhost:3000`} controls /> : <></>}
+                      {result.videos.results.length !== 0 ? <Video src={`https://www.youtube.com/embed/${result.videos.results[0].key}?autoplay=2&origin=http://localhost:3000`} controls /> : <></>}
                     </Data>
                 </Content>
             </Container>
