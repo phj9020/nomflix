@@ -122,9 +122,9 @@ function DetailPresenter({ result, error, loading }) {
                         <Divider>•</Divider>
                         <Item>Language : {result.spoken_languages && result.spoken_languages.map((item,index) => index === result.spoken_languages.length -1 ? item.name : `${item.name} / `)}</Item>
                       </ItemContainer>
-                      <Homepage href={result.homepage}>Official Website: {result.homepage}</Homepage>
+                      {result.homepage ?  <Homepage href={result.homepage}>Official Website: {result.homepage}</Homepage> : <Homepage></Homepage>}
                       <Overview>{result.overview}</Overview>
-                      {result.videos.results.length !== 0 ? <Video src={`https://www.youtube.com/embed/${result.videos.results[0].key}?autoplay=2&origin=http://localhost:3000`} controls /> : <></>}
+                      {result.videos && result.videos.results.length !== 0 ? <Video src={`https://www.youtube.com/embed/${result.videos.results[0].key}?autoplay=2&origin=http://localhost:3000`} controls /> : <></>}
                     </Data>
                 </Content>
             </Container>
