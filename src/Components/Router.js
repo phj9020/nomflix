@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+import {HashRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Detail from 'Routes/Detail';
 import Search from 'Routes/Search';
 import TV from 'Routes/TV';
@@ -8,7 +8,7 @@ import Header from "Components/Header";
 
 function Router(){
     return(
-        <BrowserRouter>
+        <HashRouter>
             <>
                 <Header />
                 <Switch>
@@ -20,7 +20,7 @@ function Router(){
                     <Redirect from="*" to="/" />
                 </Switch>
             </>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
