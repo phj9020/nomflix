@@ -22,3 +22,6 @@ Movie Discovery App
 - [x] Search (Movies, TV)
 
 
+# Preview
+
+Try it on [Netlify](https://competent-shockley-70cba6.netlify.app)
